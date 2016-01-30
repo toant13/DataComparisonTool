@@ -1,0 +1,17 @@
+*.DS_Store
+RemoteSystemsTempFiles/
+*.classpath
+*.project
+.settings/
+target/
+*.sqlite3
+*.pyc
+/target
+*/bin
+.metadata
+*/gen
+*.class
+*.apk
+*.ap_
+*.class
+build/
