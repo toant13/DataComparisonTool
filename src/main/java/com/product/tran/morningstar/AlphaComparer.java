@@ -1,4 +1,4 @@
-package com.product.tran.common.compare;
+package com.product.tran.morningstar;
 
 public class AlphaComparer implements Comparer<String>{
 

@@ -1,4 +1,4 @@
-package com.product.tran.common.load;
+package com.product.tran.morningstar;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -37,8 +37,6 @@ public class DataLoader {
 			lineNumber++;
 			loadMap(headerArray, nextLine);
 		}
-
-		System.out.println("Total number of lines: " + lineNumber);
 		reader.close();
 	}
 

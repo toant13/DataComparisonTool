@@ -1,4 +1,4 @@
-package com.product.tran.common.load;
+package com.product.tran.morningstar;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,7 @@ import java.net.URL;
 
 import org.junit.Test;
 
-import com.product.tran.common.load.MapLoader;
+import com.product.tran.morningstar.MapLoader;
 
 public class MapLoaderTest {
 

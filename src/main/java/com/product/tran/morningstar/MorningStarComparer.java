@@ -3,9 +3,6 @@ package com.product.tran.morningstar;
 import java.util.List;
 import java.util.Map;
 
-import com.product.tran.common.load.DataLoader;
-import com.product.tran.common.load.MapLoader;
-
 /**
  * @author toantran
  *
@@ -31,16 +28,26 @@ public class MorningStarComparer {
 	public void runCompare() throws Exception {
 		Map<String, String> columnMapper = mapLoader.getColumnMapper();
 		Map<String, String> typeMapper = mapLoader.getTypeMapper();
-		
-		Map<String, List<String>> productValuesMap = productLoader.getColumnValuesMap();
-		Map<String, List<String>> morningStarValuesMap = morningStarLoader.getColumnValuesMap();
-		
-		for(Map.Entry<String, String> column : columnMapper.entrySet()){
-			
+
+		for (Map.Entry<String, String> column : columnMapper.entrySet()) {
+			compareAttributes(column.getKey(), column.getValue().split(","));
 		}
 	}
 
+	public boolean compareAttributes(String column1, String[] columns2) {
+		Map<String, List<String>> productValuesMap = productLoader
+				.getColumnValuesMap();
+		Map<String, List<String>> morningStarValuesMap = morningStarLoader
+				.getColumnValuesMap();
 
-
+		List<String> productRows = productValuesMap.get(column1);
+		List<String> morningStarRows = morningStarValuesMap.get(columns2[0]);
+		for (String productRow : productRows) {
+			if (!morningStarRows.contains(productRow)) {
+			}
+		}
+		
+		return true;
+	}
 
 }
