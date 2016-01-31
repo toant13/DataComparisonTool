@@ -14,3 +14,4 @@ Scenario: If a number comparison is made is is within threshold (0.01)
   * `'When'`: I run a comparison for file1_columnA1 and file2_columnB6.
   * `'That'`: they should be considered a match
 
+##Design
