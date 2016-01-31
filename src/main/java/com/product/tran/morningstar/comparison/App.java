@@ -10,5 +10,8 @@ public class App {
 		MorningStarComparer comparer = new MorningStarComparer(productFile,
 				morningStarFile, mapFile);
 		comparer.runCompare();
+		
+		
+
 	}
 }

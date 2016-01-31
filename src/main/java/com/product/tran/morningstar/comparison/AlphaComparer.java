@@ -1,10 +1,17 @@
 package com.product.tran.morningstar.comparison;
 
-public class AlphaComparer implements Comparer<String>{
+public class AlphaComparer extends Comparer{
 
-	public boolean checkData(String value1, String value2) {
-		// TODO Auto-generated method stub
-		return false;
+	public AlphaComparer(int threshold) {
+		super(threshold);
 	}
+
+	@Override
+	public boolean checkData(String value1, String value2) {
+		return value1.equals(value2);
+	}
+
+
+
 
 }

@@ -1,8 +1,12 @@
 package com.product.tran.morningstar.comparison;
 
-public interface Comparer <T>{
+public abstract class Comparer {
+
+	protected int threshold;
 	
+	public Comparer(int threshold){
+		this.threshold = threshold;
+	}
 
-
-	public boolean checkData(T value1, T value2);
+	public abstract boolean checkData(String value1, String value2);
 }

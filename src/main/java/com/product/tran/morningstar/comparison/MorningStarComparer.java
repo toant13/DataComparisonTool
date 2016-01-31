@@ -67,7 +67,7 @@ public class MorningStarComparer {
 		Map<String, String> typeMapper = mapLoader.getTypeMapper();
 		
 		String clazz = typeMapper.get(productValue);
-		Predicate<String> capStartFilter1 = (p) -> (p.equals(productValue));
+
 		
 		boolean t = morningstarValues.stream().anyMatch((p) -> (p.equals(productValue)));
 		
