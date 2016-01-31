@@ -7,13 +7,13 @@ import java.net.URL;
 
 import org.junit.Test;
 
-import com.product.tran.common.load.DataLoad;
+import com.product.tran.common.load.DataLoader;
 
-public class DataLoadTest {
+public class DataLoaderTest {
 
 	@Test
 	public void load_validCSV_populatedMap() throws IOException {
-		DataLoad dataLoad = new DataLoad();
+		DataLoader dataLoad = new DataLoader();
 		URL url = this.getClass().getResource("/InputFiles/product.csv");
 		String strFile = url.getPath();
 		

@@ -9,7 +9,7 @@ import java.util.Map;
 
 import com.opencsv.CSVReader;
 
-public class DataLoad {
+public class DataLoader {
 
 	private Map<String, List<String>> columnValuesMap;
 
@@ -21,7 +21,7 @@ public class DataLoad {
 		this.columnValuesMap = columnValuesMap;
 	}
 
-	public DataLoad() {
+	public DataLoader() {
 		columnValuesMap = new HashMap<String, List<String>>();
 	}
 
