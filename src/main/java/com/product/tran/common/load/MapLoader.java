@@ -1,4 +1,4 @@
-package com.product.tran.load;
+package com.product.tran.common.load;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,7 +23,6 @@ public class MapLoader {
 	}
 
 	public void load(String fileName) throws Exception {
-		// read file into stream, try-with-resources
 		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 
 			stream.forEach((row) -> {
@@ -53,18 +52,18 @@ public class MapLoader {
 	}
 
 	private void mapColumn(String row) {
-		String [] inputs = row.split(DELIMITER);
+		String[] inputs = row.split(DELIMITER);
 		columnMapper.put(inputs[FILE1_INPUT_INDEX], inputs[FILE2_INPUT_INDEX]);
 	}
-	
+
 	private void mapColumnToCompareType(String row) {
-		String [] inputs = row.split(DELIMITER);
+		String[] inputs = row.split(DELIMITER);
 		typeMapper.put(inputs[FILE1_INPUT_INDEX], inputs[COMPARE_TYPE_INDEX]);
-		
+
 		String[] fileTwoColumns = inputs[FILE2_INPUT_INDEX].split(",");
-		for(String fileTwoColumn: fileTwoColumns){
+		for (String fileTwoColumn : fileTwoColumns) {
 			typeMapper.put(fileTwoColumn, inputs[COMPARE_TYPE_INDEX]);
 		}
-		
+
 	}
 }

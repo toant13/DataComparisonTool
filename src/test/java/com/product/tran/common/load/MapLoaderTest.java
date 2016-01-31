@@ -1,10 +1,12 @@
-package com.product.tran.load;
+package com.product.tran.common.load;
 
 import static org.junit.Assert.*;
 
 import java.net.URL;
 
 import org.junit.Test;
+
+import com.product.tran.common.load.MapLoader;
 
 public class MapLoaderTest {
 
