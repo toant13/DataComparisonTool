@@ -2,6 +2,7 @@ package com.product.tran.morningstar.comparison;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 /**
  * @author toantran
@@ -12,6 +13,8 @@ public class MorningStarComparer {
 	private MapLoader mapLoader;
 	private DataLoader productLoader;
 	private DataLoader morningStarLoader;
+
+	private static final String LEVEL_DELIMITER = ",";
 
 	public MorningStarComparer(String productFile, String morningStarFile,
 			String mapFile) throws Exception {
@@ -30,24 +33,45 @@ public class MorningStarComparer {
 		Map<String, String> typeMapper = mapLoader.getTypeMapper();
 
 		for (Map.Entry<String, String> column : columnMapper.entrySet()) {
-			compareAttributes(column.getKey(), column.getValue().split(","));
+			if (!compareAttributes(column.getKey(),
+					column.getValue().split(LEVEL_DELIMITER), 0)) {
+
+			}
 		}
 	}
 
-	public boolean compareAttributes(String column1, String[] columns2) {
+	private boolean compareAttributes(String column1, String[] columns2,
+			int startIndex) {
+		if ((columns2.length - 1) > startIndex) {
+			return false;
+		}
+
 		Map<String, List<String>> productValuesMap = productLoader
 				.getColumnValuesMap();
 		Map<String, List<String>> morningStarValuesMap = morningStarLoader
 				.getColumnValuesMap();
+		
 
 		List<String> productRows = productValuesMap.get(column1);
-		List<String> morningStarRows = morningStarValuesMap.get(columns2[0]);
+		List<String> morningStarRows = morningStarValuesMap
+				.get(columns2[startIndex]);
 		for (String productRow : productRows) {
 			if (!morningStarRows.contains(productRow)) {
+				return compareAttributes(column1, columns2, startIndex + 1);
 			}
 		}
-		
 		return true;
+	}
+
+	private boolean contains(String productValue, List<String> morningstarValues) {
+		Map<String, String> typeMapper = mapLoader.getTypeMapper();
+		
+		String clazz = typeMapper.get(productValue);
+		Predicate<String> capStartFilter1 = (p) -> (p.equals(productValue));
+		
+		boolean t = morningstarValues.stream().anyMatch((p) -> (p.equals(productValue)));
+		
+		return false;
 	}
 
 }
