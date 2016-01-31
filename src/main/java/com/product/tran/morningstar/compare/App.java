@@ -1,4 +1,4 @@
-package com.product.tran.morningstar;
+package com.product.tran.morningstar.compare;
 
 public class App {
 

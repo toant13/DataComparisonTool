@@ -1,11 +1,13 @@
 /**
  * 
  */
-package com.product.tran.morningstar;
+package com.product.tran.morningstar.compare;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.product.tran.morningstar.compare.MorningStarComparer;
 
 /**
  * @author toantran
