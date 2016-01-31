@@ -1,4 +1,4 @@
-package com.product.tran.morningstar.compare;
+package com.product.tran.morningstar.comparison;
 
 import static org.junit.Assert.*;
 
@@ -7,7 +7,7 @@ import java.net.URL;
 
 import org.junit.Test;
 
-import com.product.tran.morningstar.compare.DataLoader;
+import com.product.tran.morningstar.comparison.DataLoader;
 
 public class DataLoaderTest {
 

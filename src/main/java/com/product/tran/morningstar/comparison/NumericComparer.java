@@ -1,4 +1,4 @@
-package com.product.tran.morningstar.compare;
+package com.product.tran.morningstar.comparison;
 
 public class NumericComparer implements Comparer<Double>{
 

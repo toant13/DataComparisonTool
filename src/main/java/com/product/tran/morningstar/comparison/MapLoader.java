@@ -1,4 +1,4 @@
-package com.product.tran.morningstar.compare;
+package com.product.tran.morningstar.comparison;
 
 import java.io.IOException;
 import java.nio.file.Files;

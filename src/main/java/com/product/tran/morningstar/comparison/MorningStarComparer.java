@@ -1,4 +1,4 @@
-package com.product.tran.morningstar.compare;
+package com.product.tran.morningstar.comparison;
 
 import java.util.List;
 import java.util.Map;
