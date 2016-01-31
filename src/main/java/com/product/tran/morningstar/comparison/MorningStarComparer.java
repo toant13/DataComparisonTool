@@ -30,19 +30,20 @@ public class MorningStarComparer {
 
 	public void runCompare() throws Exception {
 		Map<String, String> columnMapper = mapLoader.getColumnMapper();
-		Map<String, String> typeMapper = mapLoader.getTypeMapper();
 
 		for (Map.Entry<String, String> column : columnMapper.entrySet()) {
 			if (!compareAttributes(column.getKey(),
 					column.getValue().split(LEVEL_DELIMITER), 0)) {
+			} else {
 
+				System.out.println();
 			}
 		}
 	}
 
-	private boolean compareAttributes(String column1, String[] columns2,
-			int startIndex) {
-		if ((columns2.length - 1) > startIndex) {
+	private boolean compareAttributes(String productColumnName,
+			String[] morningStarColumns, int startIndex) {
+		if ((morningStarColumns.length - 1) < startIndex) {
 			return false;
 		}
 
@@ -50,28 +51,52 @@ public class MorningStarComparer {
 				.getColumnValuesMap();
 		Map<String, List<String>> morningStarValuesMap = morningStarLoader
 				.getColumnValuesMap();
-		
 
-		List<String> productRows = productValuesMap.get(column1);
-		List<String> morningStarRows = morningStarValuesMap
-				.get(columns2[startIndex]);
-		for (String productRow : productRows) {
-			if (!morningStarRows.contains(productRow)) {
-				return compareAttributes(column1, columns2, startIndex + 1);
+		List<String> productValues = productValuesMap.get(productColumnName);
+		List<String> morningstarValues = morningStarValuesMap
+				.get(morningStarColumns[startIndex]);
+		for (String productValue : productValues) {
+			if (!contains(productColumnName, productValue, morningstarValues)) {
+				return compareAttributes(productColumnName, morningStarColumns,
+						startIndex + 1);
 			}
 		}
 		return true;
 	}
 
-	private boolean contains(String productValue, List<String> morningstarValues) {
-		Map<String, String> typeMapper = mapLoader.getTypeMapper();
-		
-		String clazz = typeMapper.get(productValue);
+	private boolean contains(String productColumnName, String productValue,
+			List<String> morningstarValues) {
 
+		/**** initial testing ****/
+		Comparer comparer = getComparer(productColumnName);
 		
-		boolean t = morningstarValues.stream().anyMatch((p) -> (p.equals(productValue)));
+
+		boolean areMatched = morningstarValues.stream().anyMatch(
+				(p) -> (comparer.checkData(productValue,p)));
+
+		System.out.println(areMatched);
 		
-		return false;
+		return areMatched;
+	}
+	
+	
+	/**** initial testing. turn into factory****/
+	private Comparer getComparer(String productColumnName){
+		Map<String, String> typeMapper = mapLoader.getTypeMapper();
+		String type = typeMapper.get(productColumnName);
+		Comparer comparer = null;
+		switch (type) {
+		case "ALPHA":
+			System.out.println("alpha");
+			comparer = new AlphaComparer(100);
+			break;
+		case "NUMERIC":
+			System.out.println("numeric");
+			comparer = new NumericComparer(1);
+			break;
+		}
+		
+		return comparer;
 	}
 
 }

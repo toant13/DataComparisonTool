@@ -1,3 +1,2 @@
-A1:B2,B4:ALPHA
-A3:B1:NUMERIC
-A2:B3:NUMERIC
+product_longname:MS_longname,MS_shortname:ALPHA
+product_somenumber:MS_somenumber:NUMERIC
