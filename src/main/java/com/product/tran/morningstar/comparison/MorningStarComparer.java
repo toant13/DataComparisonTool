@@ -34,7 +34,8 @@ public class MorningStarComparer {
 	public void runCompare() throws Exception {
 		Map<String, String> columnMapper = mapLoader.getColumnMapper();
 
-		for (Map.Entry<String, String> column : columnMapper.entrySet()) {
+		for (Map.Entry<String, String> column : columnMapper.entrySet()) {	
+//			print out headers
 			if (compareAttributes(column.getKey(),
 					column.getValue().split(LEVEL_DELIMITER))) {
 				statusPrinter.printStatus("way to go idaho. All match for: "
@@ -72,7 +73,7 @@ public class MorningStarComparer {
 
 		if (startIndex > 0) {
 			statusPrinter.printStatus("testing second level for " + productColumnName
-					+ " " + productValue + " with: "
+					+ ": " + productValue + " with: "
 					+ morningStarColumns[startIndex]);
 		}
 
