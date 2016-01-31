@@ -18,7 +18,7 @@ public class DataLoaderTest {
 		String strFile = url.getPath();
 		
 		dataLoad.load(strFile);
-		assertTrue("Map was not loaded as expected",dataLoad.getColumnValuesMap().toString().equals("{product_longname=[name1, name2], product_somenumber=[183.84, 9837.87], product_shortname=[nm1, nm2]}"));
+		assertTrue("Map was not loaded as expected",dataLoad.getColumnValuesMap().toString().equals("{product_longname=[name1, nm2], product_somenumber=[183.84, 9837.87], product_shortname=[nm1, nm2]}"));
 	}
 
 }

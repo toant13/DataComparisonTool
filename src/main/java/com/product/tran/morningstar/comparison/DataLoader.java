@@ -9,6 +9,13 @@ import java.util.Map;
 
 import com.opencsv.CSVReader;
 
+/**
+ * 
+ * Loads csv files into map
+ * 
+ * @author toantran
+ *
+ */
 public class DataLoader {
 
 	private Map<String, List<String>> columnValuesMap;
@@ -25,21 +32,31 @@ public class DataLoader {
 		columnValuesMap = new HashMap<String, List<String>>();
 	}
 
+	/**
+	 * Iterates through each line of csv file to add to map
+	 * 
+	 * @param strFile
+	 * @throws IOException
+	 */
 	public void load(String strFile) throws IOException {
 		CSVReader reader = new CSVReader(new FileReader(strFile));
-
-		int lineNumber = 0;
 
 		String[] headerArray = reader.readNext();
 
 		String[] nextLine;
 		while ((nextLine = reader.readNext()) != null) {
-			lineNumber++;
 			loadMap(headerArray, nextLine);
 		}
 		reader.close();
 	}
 
+	/**
+	 * 
+	 * Adds values to map
+	 * 
+	 * @param header
+	 * @param values
+	 */
 	private void loadMap(String[] header, String[] values) {
 		for (int i = 0; i < values.length; i++) {
 			if (columnValuesMap.containsKey(header[i])) {
