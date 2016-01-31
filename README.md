@@ -14,4 +14,12 @@ Scenario: If a number comparison is made is is within threshold (0.01)
   * `'When'`: I run a comparison for file1_columnA1 and file2_columnB6.
   * `'That'`: they should be considered a match
 
+##To Do
+  * Finish status printer - As a tool user, I want mis-matches out, so that I can investigate why there are data mismatches
+  * Finish UI - As a tool user, I want to have a UI interface, so that I can select data comparison inputs and save comparison outputs
+  * Create map creator feature - As a tool user, I want a map creator interface, so that I don't have to manually create one
+  * Create history report comparer - As a tool user, I want to history comparison, so that I can keep track of common mismatch trends
+  
 ##Design
+
+  
