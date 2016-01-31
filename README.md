@@ -3,13 +3,13 @@ Comparison tool that compares mapped columns for two data files.  There is also 
 
 ##Features
 
-Scenario: If columnA1 doesn't match with columnB6, then go compare with columnB10 if levels are set.
+Scenario: Matching on levels of column attributes if the first level fails.
   * `'Given'`: that file1_columnA1 is compared to file2_columnB6
   * `'And'`: they do not match
   * `'When'`: I run a comparison for file1_columnA1 and file2_columnB6.
   * `'That'`: another comparison with file1_columnA1 and file2_columnB10 will be made.
   
-Scenario: If a number comparison is made is is within threshold (0.01)
+Scenario: Giving positives matches if values are within a given threshold.
   * `'Given'`: that file1_columnA1 (123.235) is compared to file2_columnB6 (123.240)
   * `'When'`: I run a comparison for file1_columnA1 and file2_columnB6.
   * `'That'`: they should be considered a match
