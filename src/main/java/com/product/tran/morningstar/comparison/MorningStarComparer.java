@@ -12,7 +12,7 @@ public class MorningStarComparer {
 	private MapLoader mapLoader;
 	private DataLoader productLoader;
 	private DataLoader morningStarLoader;
-	
+
 	private StatusPrinter statusPrinter;
 
 	private static final String LEVEL_DELIMITER = ",";
@@ -27,15 +27,20 @@ public class MorningStarComparer {
 
 		this.morningStarLoader = new DataLoader();
 		morningStarLoader.load(morningStarFile);
-		
+
 		statusPrinter = StatusPrinter.getStatusPrinter();
 	}
 
+	/**
+	 * Calls call compare functions necessary to compare product data again morningstar's
+	 * 
+	 * @throws Exception
+	 */
 	public void runCompare() throws Exception {
 		Map<String, String> columnMapper = mapLoader.getColumnMapper();
 
-		for (Map.Entry<String, String> column : columnMapper.entrySet()) {	
-//			print out headers
+		for (Map.Entry<String, String> column : columnMapper.entrySet()) {
+			// print out headers
 			if (compareAttributes(column.getKey(),
 					column.getValue().split(LEVEL_DELIMITER))) {
 				statusPrinter.printStatus("way to go idaho. All match for: "
@@ -47,6 +52,13 @@ public class MorningStarComparer {
 		}
 	}
 
+	/**
+	 * Compares all mapped data between product and morning star
+	 * 
+	 * @param productColumnName
+	 * @param morningStarColumns
+	 * @return
+	 */
 	private boolean compareAttributes(String productColumnName,
 			String[] morningStarColumns) {
 		Map<String, List<String>> productValuesMap = productLoader
@@ -65,6 +77,15 @@ public class MorningStarComparer {
 		return true;
 	}
 
+	/**
+	 * check all attribute of column against morningstar's equivalent column data
+	 * 
+	 * @param productColumnName
+	 * @param productValue
+	 * @param morningStarColumns
+	 * @param startIndex
+	 * @return
+	 */
 	private boolean checkMorningStar(String productColumnName,
 			String productValue, String[] morningStarColumns, int startIndex) {
 		if ((morningStarColumns.length - 1) < startIndex) {
@@ -72,8 +93,8 @@ public class MorningStarComparer {
 		}
 
 		if (startIndex > 0) {
-			statusPrinter.printStatus("testing second level for " + productColumnName
-					+ ": " + productValue + " with: "
+			statusPrinter.printStatus("testing second level for "
+					+ productColumnName + ": " + productValue + " with: "
 					+ morningStarColumns[startIndex]);
 		}
 
@@ -89,6 +110,16 @@ public class MorningStarComparer {
 		return true;
 	}
 
+	/**
+	 * Checks if morningstar data has the product column value and whether it
+	 * matches based on comparer criteria
+	 * 
+	 * @param productColumnName
+	 * @param productValue
+	 * @param morningstarValues
+	 * @param startIndex
+	 * @return
+	 */
 	private boolean contains(String productColumnName, String productValue,
 			List<String> morningstarValues, int startIndex) {
 
@@ -100,6 +131,12 @@ public class MorningStarComparer {
 		return areMatched;
 	}
 
+	/**
+	 * Returns type of comparer according to column given
+	 * 
+	 * @param productColumnName
+	 * @return
+	 */
 	private Comparer getComparer(String productColumnName) {
 		Map<String, String> typeMapper = mapLoader.getTypeMapper();
 		String type = typeMapper.get(productColumnName);
