@@ -1,4 +1,4 @@
-package com.product.tran.morningstar.comparison;
+package com.product.tran.dashboard.comparison;
 
 import java.math.BigDecimal;
 

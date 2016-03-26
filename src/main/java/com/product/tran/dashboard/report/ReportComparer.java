@@ -1,4 +1,4 @@
-package com.product.tran.morningstar.report;
+package com.product.tran.dashboard.report;
 
 /**
  * 

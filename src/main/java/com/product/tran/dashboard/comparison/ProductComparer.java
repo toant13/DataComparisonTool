@@ -1,4 +1,4 @@
-package com.product.tran.morningstar.comparison;
+package com.product.tran.dashboard.comparison;
 
 import java.util.List;
 import java.util.Map;
@@ -7,7 +7,7 @@ import java.util.Map;
  * @author toantran
  *
  */
-public class MorningStarComparer {
+public class ProductComparer {
 
 	private MapLoader mapLoader;
 	private DataLoader productLoader;
@@ -17,7 +17,7 @@ public class MorningStarComparer {
 
 	private static final String LEVEL_DELIMITER = ",";
 
-	public MorningStarComparer(String productFile, String morningStarFile,
+	public ProductComparer(String productFile, String morningStarFile,
 			String mapFile) throws Exception {
 		this.mapLoader = new MapLoader();
 		mapLoader.load(mapFile);

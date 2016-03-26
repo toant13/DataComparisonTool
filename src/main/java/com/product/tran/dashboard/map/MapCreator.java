@@ -1,4 +1,4 @@
-package com.product.tran.morningstar.map;
+package com.product.tran.dashboard.map;
 
 /**
  * 

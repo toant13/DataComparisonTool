@@ -1,19 +1,19 @@
 /**
  * 
  */
-package com.product.tran.morningstar.comparison;
+package com.product.tran.dashboard.comparison;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.product.tran.morningstar.comparison.MorningStarComparer;
+import com.product.tran.dashboard.comparison.ProductComparer;
 
 /**
  * @author toantran
  *
  */
-public class MorningStarComparerTest {
+public class ProductComparerTest {
 
 	@Test
 	public void test() throws Exception {
@@ -21,7 +21,7 @@ public class MorningStarComparerTest {
 		String morningStarFile = this.getClass().getResource("/InputFiles/morningstar.csv").getPath();
 		String mapFile = this.getClass().getResource("/map/map.txt").getPath();
 		
-		MorningStarComparer comparer = new MorningStarComparer(productFile, morningStarFile, mapFile);
+		ProductComparer comparer = new ProductComparer(productFile, morningStarFile, mapFile);
 		comparer.runCompare();
 	}
 
