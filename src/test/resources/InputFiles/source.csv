@@ -1,0 +1,5 @@
+SPN ID,Fund Name,Fund Status,name_v,Fund Inception Date,MORNINGSTAR_OVERALL_RATING_VL,CUSIP,si
+456,vehicle2,statusB,benchmarkY,121301,ratingPG,2wsx,123.01
+789,vehicle3,statusC,benchmarkX,121302,ratingX,3edc,123.015
+987,vehicle4,statusD,benchmarkW,121399,ratingG,4rfv,124.00
+123,vehicle1,statusA,benchmarkZ,121303,ratingR,1qaz,124.01

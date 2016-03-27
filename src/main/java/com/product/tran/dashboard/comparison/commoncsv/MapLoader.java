@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 public class MapLoader {
 
 	private final static String DELIMITER = ":";
+	private final static String MAPCOLUMNPSPLIT = "~";
 
 	private Map<String, List<String>> KeyToColumnsMapper;
 	private Map<String, String> columnsToTypeMapper;
@@ -65,6 +66,20 @@ public class MapLoader {
 			String type = inputs[MapPosition.COMPARE_TYPE_INDEX.getPosition()];
 			this.columnsToTypeMapper.put(columns, type);
 		}
+	}
+
+	public static String getColumnName(String columnKey, String productOrSource) {
+		String[] column = columnKey.split(MAPCOLUMNPSPLIT);
+		String columnName = null;
+		switch (productOrSource.toUpperCase()) {
+		case "PRODUCT":
+			columnName = column[0];
+			break;
+		case "SOURCE":
+			columnName = column[1];
+			break;
+		}
+		return columnName;
 	}
 
 	public Map<String, List<String>> getKeyToColumnsMapper() {

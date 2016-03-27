@@ -1,5 +1,5 @@
-product_longname,product_somenumber,product_shortname
-naam3,98.87,nm4
-name1,183.84,nm2
-nm2,9837.87,nm1
-nm3,98.87,nm3
+SPN ID,Vehicle Name,Vehicle Status,Primary Prospectus Benchmark,Incep. Date,Morningstar Rating,CUSIP,SI Return
+123,vehicle1,statusA,benchmarkZ,121303,ratingR,1qaz,123.01
+456,vehicle2,statusB,benchmarkY,121301,ratingPG,2wsx,123.01
+789,vehicle3,statusC,benchmarkX,121302,ratingX,3edc,123.01
+987,vehicle4,statusD,benchmarkW,121399,ratingG,4rfv,123.01

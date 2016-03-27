@@ -12,7 +12,6 @@ public class NumericComparer extends Comparer {
 	public boolean checkData(String value1, String value2) {
 		Double doubleValue1 = convertData(value1);
 		Double doubleValue2 = convertData(value2);
-
 		return Math.abs(doubleValue1 - doubleValue2) < this.threshold;
 	}
 
