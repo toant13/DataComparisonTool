@@ -26,11 +26,18 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+		<!-- csv dependencies -->	
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>3.7</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!--  end csv dependencies -->
 		<dependency>
 			<groupId>com.zenjava</groupId>
 			<artifactId>javafx-maven-plugin</artifactId>
