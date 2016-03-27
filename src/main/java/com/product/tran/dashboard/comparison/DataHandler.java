@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison.commoncsv;
+package com.product.tran.dashboard.comparison;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,17 +14,28 @@ public class DataHandler {
 
 	private final static char DELIMITER = ',';
 	protected List<CSVRecord> records;
+
 	protected Map<String, Integer> headerMap;
 
 	public DataHandler(String strFile) throws FileNotFoundException,
 			IOException {
-		CSVFormat format = CSVFormat.RFC4180.withHeader().withDelimiter(DELIMITER);
+		CSVFormat format = CSVFormat.RFC4180.withHeader().withDelimiter(
+				DELIMITER);
 		CSVParser parser = new CSVParser(new FileReader(strFile), format);
 
 		this.headerMap = parser.getHeaderMap();
 		this.records = parser.getRecords();
 
 		parser.close();
+	}
+		
+
+	public List<CSVRecord> getRecords() {
+		return records;
+	}
+
+	public Map<String, Integer> getHeaderMap() {
+		return headerMap;
 	}
 
 }

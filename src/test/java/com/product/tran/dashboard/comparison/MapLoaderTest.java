@@ -3,47 +3,44 @@ package com.product.tran.dashboard.comparison;
 import static org.junit.Assert.*;
 
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
-
-import com.product.tran.dashboard.comparison.MapLoader;
 
 public class MapLoaderTest {
 
 	@Test
-	public void load_ValidMapFile_PopulatedMap() throws Exception {
+	public void load_ValidMap_PopulatedMaps() throws Exception {
 		MapLoader mapLoader = new MapLoader();
-
-		URL url = this.getClass().getResource("/map/map.txt");
+		URL url = this.getClass().getResource("/map/keymap.txt");
 		String fileName = url.getPath();
 		mapLoader.load(fileName);
 
-		assertTrue("Column mapper does not match", mapLoader.getColumnMapper()
-				.toString().equals("{product_longname=MS_longname,MS_shortname, product_somenumber=MS_somenumber}"));
-		assertTrue(
-				"Type mapper does not match",
-				mapLoader
-						.getTypeMapper()
-						.toString()
-						.equals("{product_longname=ALPHA, MS_longname=ALPHA, product_somenumber=NUMERIC, MS_shortname=ALPHA, MS_somenumber=NUMERIC}"));
+		Map<String, List<String>> actualKeyToColumnsMapper = mapLoader
+				.getKeyToColumnsMapper();
+		String expectedKeyToColumns = "{CUSIP=[Morningstar Rating~MORNINGSTAR_OVERALL_RATING_VL, SI Return~si], SPN ID=[Vehicle Name~Fund Name, Vehicle Status~Fund Status, Primary Prospectus Benchmark~name_v, Incep. Date~Fund Inception Date]}";
+		assertEquals(expectedKeyToColumns, actualKeyToColumnsMapper.toString());
+
+		Map<String, String> columnsToTypeMapper = mapLoader
+				.getColumnsToTypeMapper();
+		System.out.println(columnsToTypeMapper);
+		String expectedColumnsToType = "{Morningstar Rating~MORNINGSTAR_OVERALL_RATING_VL=ALPHA, Vehicle Status~Fund Status=ALPHA, Vehicle Name~Fund Name=ALPHA, Primary Prospectus Benchmark~name_v=ALPHA, SI Return~si=NUMERIC, Incep. Date~Fund Inception Date=ALPHA}";
+		assertEquals(expectedColumnsToType, columnsToTypeMapper.toString());
 	}
-	
-	@Test(expected = NullPointerException.class)  
-	public void load_InvalidMapFile_PopulatedMap() throws Exception {
-		MapLoader mapLoader = new MapLoader();
 
-		URL url = this.getClass().getResource("/map/map1.txt");
+	@Test(expected = NullPointerException.class)
+	public void load_NullMap_NullPointerException() throws Exception {
+		MapLoader mapLoader = new MapLoader();
+		mapLoader.load(null);
+	}
+
+	@Test(expected = RuntimeException.class)
+	public void load_InvalidMapWithDuplicateKeyToColumns_RuntimeException() throws Exception {
+		MapLoader mapLoader = new MapLoader();
+		URL url = this.getClass().getResource("/map/invalidkeymap.txt");
 		String fileName = url.getPath();
 		mapLoader.load(fileName);
-
-		assertTrue("Column mapper does not match", mapLoader.getColumnMapper()
-				.toString().equals("{A1=B2,B4, A2=B3, A3=B1}"));
-		assertTrue(
-				"Type mapper does not match",
-				mapLoader
-						.getTypeMapper()
-						.toString()
-						.equals("{A1=ALPHA, B2=ALPHA, A2=NUMERIC, B3=NUMERIC, B4=ALPHA, A3=NUMERIC, B1=NUMERIC}"));
 	}
 
 }

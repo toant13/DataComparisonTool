@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison.commoncsv;
+package com.product.tran.dashboard.comparison;
 
 /**
  * Enum to map position in mapper file

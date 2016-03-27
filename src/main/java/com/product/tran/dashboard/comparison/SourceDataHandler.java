@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison.commoncsv;
+package com.product.tran.dashboard.comparison;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -1,28 +1,68 @@
-/**
- * 
- */
 package com.product.tran.dashboard.comparison;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.product.tran.dashboard.comparison.ProductSourceComparer;
-
-/**
- * @author toantran
- *
- */
 public class ProductSourceComparerTest {
 
 	@Test
-	public void test() throws Exception {
-		String productFile = this.getClass().getResource("/InputFiles/product.csv").getPath();
-		String morningStarFile = this.getClass().getResource("/InputFiles/morningstar.csv").getPath();
-		String mapFile = this.getClass().getResource("/map/map.txt").getPath();
-		
-		ProductSourceComparer comparer = new ProductSourceComparer(productFile, morningStarFile, mapFile);
-		comparer.runCompare();
-	}
+	public void productSourceComparer_ValidFiles_True() {
+		String productFile = this.getClass()
+				.getResource("/InputFiles/product.csv").getPath();
+		String sourceFile = this.getClass()
+				.getResource("/InputFiles/source.csv").getPath();
+		String mapFile = this.getClass().getResource("/map/keymap.txt")
+				.getPath();
+		try {
+			ProductSourceComparer comparer = new ProductSourceComparer(
+					productFile, sourceFile, mapFile);
 
+			boolean result = comparer.runCompare();
+
+			assertTrue(result);
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void productSourceComparer_InvalidProduct_False() {
+		String productFile = this.getClass()
+				.getResource("/InputFiles/invalidproduct.csv").getPath();
+		String sourceFile = this.getClass()
+				.getResource("/InputFiles/source.csv").getPath();
+		String mapFile = this.getClass().getResource("/map/keymap.txt")
+				.getPath();
+		try {
+			ProductSourceComparer comparer = new ProductSourceComparer(
+					productFile, sourceFile, mapFile);
+
+			boolean result = comparer.runCompare();
+
+			assertFalse(result);
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void productSourceComparer_InvalidSource_False() {
+		String productFile = this.getClass()
+				.getResource("/InputFiles/product.csv").getPath();
+		String sourceFile = this.getClass()
+				.getResource("/InputFiles/invalidsource.csv").getPath();
+		String mapFile = this.getClass().getResource("/map/keymap.txt")
+				.getPath();
+		try {
+			ProductSourceComparer comparer = new ProductSourceComparer(
+					productFile, sourceFile, mapFile);
+
+			boolean result = comparer.runCompare();
+
+			assertFalse(result);
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+	}
 }
