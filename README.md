@@ -21,9 +21,11 @@ Scenario: Giving positives matches if values are within a given threshold.
   * `'Finish UI'` - As a tool user, I want to have a UI interface, so that I can select data comparison inputs and save comparison outputs
   * `'Executable jar'` - As a tool user, I want to open the tool by an executable, so that I dont require and IDE to run it.
   * `'Create map'` creator feature - As a tool user, I want a map creator interface, so that I don't have to manually create one
+  * `'Optimize comparison performance'` - As a tool user, I want the comparisons completion time to be XXX, so that I can get results back quicker 
   * `'Create history report comparer'` - As a tool user, I want to history comparison, so that I can keep track of common mismatch trends and link them with common issues to minimize investigation time
   * `'Validate map file'` creator feature - As a tool user, I want to validate my map file, so that I can ensure any errors cause will be through other sources than the map file
   
 ##Design
+Current comparisons are done by brute force approach.  This can be sped up by storing data in extra data structures to speed up look up time.  Will need to get 'real' test data before doing this implementation.
 
   
