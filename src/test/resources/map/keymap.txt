@@ -1,0 +1,5 @@
+SPN ID:Vehicle Name~Fund Name:ALPHA
+SPN ID:Vehicle Status~Fund Status:ALPHA
+SPN ID:Primary Prospectus Benchmark~name_v:ALPHA
+SPN ID:Incep. Date~Func Inception Date:ALPHA
+CUSIP:Morningstar Rating~MORNINGSTAR_OVERALL_RATING_VL:ALPHA

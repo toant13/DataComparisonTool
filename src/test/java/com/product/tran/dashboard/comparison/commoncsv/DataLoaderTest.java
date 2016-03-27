@@ -1,23 +1,20 @@
 package com.product.tran.dashboard.comparison.commoncsv;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 import java.net.URL;
 
 import org.junit.Test;
 
-import com.product.tran.dashboard.comparison.commoncsv.*;
-
 public class DataLoaderTest {
 
 	@Test
 	public void load_validCSV_populatedMap() throws IOException {
-		DataLoader dataLoad = new DataLoader();
+		
 		URL url = this.getClass().getResource("/InputFiles/product.csv");
 		String strFile = url.getPath();
+//		DataHandler dataLoad = new DataHandler();
 
-		dataLoad.load(strFile);
+//		dataLoad.load(strFile);
 //		assertTrue(
 //				"Map was not loaded as expected",
 //				dataLoad.getColumnValuesMap()
