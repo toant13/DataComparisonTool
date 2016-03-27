@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison;
+package com.product.tran.dashboard.comparison.opencsv;
 
 import static org.junit.Assert.*;
 
@@ -7,7 +7,7 @@ import java.net.URL;
 
 import org.junit.Test;
 
-import com.product.tran.dashboard.comparison.DataLoader;
+import com.product.tran.dashboard.comparison.opencsv.DataLoader;
 
 public class DataLoaderTest {
 

@@ -7,13 +7,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.product.tran.dashboard.comparison.ProductComparer;
+import com.product.tran.dashboard.comparison.ProductSourceComparer;
 
 /**
  * @author toantran
  *
  */
-public class ProductComparerTest {
+public class ProductSourceComparerTest {
 
 	@Test
 	public void test() throws Exception {
@@ -21,7 +21,7 @@ public class ProductComparerTest {
 		String morningStarFile = this.getClass().getResource("/InputFiles/morningstar.csv").getPath();
 		String mapFile = this.getClass().getResource("/map/map.txt").getPath();
 		
-		ProductComparer comparer = new ProductComparer(productFile, morningStarFile, mapFile);
+		ProductSourceComparer comparer = new ProductSourceComparer(productFile, morningStarFile, mapFile);
 		comparer.runCompare();
 	}
 

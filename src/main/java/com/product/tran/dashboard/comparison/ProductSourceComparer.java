@@ -3,11 +3,13 @@ package com.product.tran.dashboard.comparison;
 import java.util.List;
 import java.util.Map;
 
+import com.product.tran.dashboard.comparison.opencsv.DataLoader;
+
 /**
  * @author toantran
  *
  */
-public class ProductComparer {
+public class ProductSourceComparer {
 
 	private MapLoader mapLoader;
 	private DataLoader productLoader;
@@ -17,7 +19,7 @@ public class ProductComparer {
 
 	private static final String LEVEL_DELIMITER = ",";
 
-	public ProductComparer(String productFile, String morningStarFile,
+	public ProductSourceComparer(String productFile, String morningStarFile,
 			String mapFile) throws Exception {
 		this.mapLoader = new MapLoader();
 		mapLoader.load(mapFile);
