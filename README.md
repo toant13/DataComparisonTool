@@ -4,15 +4,17 @@ Comparison tool that compares mapped columns for two data files.  There is also 
 ##Features
 
 Scenario: Matching on levels of column attributes if the first level fails.
-  * `'Given'`: that file1_columnA1 is compared to file2_columnB6
-  * `'And'`: they do not match
-  * `'When'`: I run a comparison for file1_columnA1 and file2_columnB6.
-  * `'That'`: another comparison with file1_columnA1 and file2_columnB10 will be made.
+  * `'Given'`: that file1_columnA1 is to be compared to file2_columnB6 or file2_columnB7
+  * `'And'`: file1_columnA2 has value ABC or DEF to do comparisons to file2_columnB6 or file2_columnB7
+  * `'When'`: I run a comparison and file1_columnA2 is ABC
+  * `'Then'`: file1_columnA1 will be compared against file2_columnB6
+  * `'When'`: I run a comparison and file1_columnA2 is DEF
+  * `'Then'`: file1_columnA1 will be compared against file2_columnB7
   
 Scenario: Giving positives matches if values are within a given threshold.
   * `'Given'`: that file1_columnA1 (123.235) is compared to file2_columnB6 (123.240)
   * `'When'`: I run a comparison for file1_columnA1 and file2_columnB6.
-  * `'That'`: they should be considered a match
+  * `'Then'`: they should be considered a match
 
 ##To Do
   * ~~`'Comparison using key'` - As a tool user, I want to do comparison against columns from product and the source-data matching on a key, so that I can lower the frequency of false positives.~~
