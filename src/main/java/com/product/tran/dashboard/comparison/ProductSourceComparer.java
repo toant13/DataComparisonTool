@@ -5,6 +5,13 @@ import java.util.Map;
 
 import org.apache.commons.csv.CSVRecord;
 
+/**
+ * Class to do comparison of product data against source data using the loaded map
+ * 
+ * 
+ * @author toantran
+ *
+ */
 public class ProductSourceComparer {
 
 	private MapLoader mapLoader;
@@ -24,6 +31,11 @@ public class ProductSourceComparer {
 		this.statusPrinter = StatusPrinter.getStatusPrinter();
 	}
 
+	/**
+	 * Runs data comparison between product data and source data
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean runCompare() throws Exception {
 		boolean overallResults = true;
 		for (Map.Entry<String, List<String>> key : this.mapLoader
@@ -37,6 +49,14 @@ public class ProductSourceComparer {
 		return overallResults;
 	}
 
+	/**
+	 * Comparison of all product rows against corresponding source row matching on key
+	 * 
+	 * @param key
+	 * @param attributeList
+	 * @return
+	 * @throws Exception
+	 */
 	private boolean compareProductRows(String key, List<String> attributeList)
 			throws Exception {
 		boolean overallResults = true;
@@ -52,6 +72,14 @@ public class ProductSourceComparer {
 		return overallResults;
 	}
 
+	/**
+	 * Compares product attribute value gainst corresponding source attribute value
+	 * 
+	 * @param attributeList
+	 * @param Product
+	 * @param Source
+	 * @return
+	 */
 	private boolean compareAttributes(List<String> attributeList,
 			CSVRecord Product, CSVRecord Source) {
 		boolean overallResults = true;
@@ -75,6 +103,14 @@ public class ProductSourceComparer {
 		return overallResults;
 	}
 
+	/**
+	 * Print results of when data doesn't match
+	 * 
+	 * @param matchResult
+	 * @param productValue
+	 * @param sourceValue
+	 * @param attribute
+	 */
 	private void printResults(boolean matchResult, String productValue,
 			String sourceValue, String attribute) {
 		if (!matchResult) {
@@ -86,6 +122,12 @@ public class ProductSourceComparer {
 		}
 	}
 
+	/**
+	 * Get comparer object to do execute comparisons
+	 * 
+	 * @param attribute
+	 * @return
+	 */
 	private Comparer getComparer(String attribute) {
 		String compareType = mapLoader.getColumnsToTypeMapper().get(attribute);
 		return ComparerFactory.getComparer(compareType);

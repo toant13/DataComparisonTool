@@ -17,6 +17,13 @@ public class DataHandler {
 
 	protected Map<String, Integer> headerMap;
 
+	/**
+	 * Loads csv file to maps
+	 * 
+	 * @param strFile
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public DataHandler(String strFile) throws FileNotFoundException,
 			IOException {
 		CSVFormat format = CSVFormat.RFC4180.withHeader().withDelimiter(

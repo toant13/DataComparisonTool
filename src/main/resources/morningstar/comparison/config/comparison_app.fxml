@@ -3,7 +3,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane fx:controller="com.product.tran.morningstar.comparison.ComparisonApp"
+<GridPane fx:controller="com.product.tran.dashboard.comparison.ComparisonApp"
 	xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
 	<TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -12,8 +12,8 @@
 	<TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
 	<Label text="Product File:" GridPane.columnIndex="1"
 		GridPane.rowIndex="5" />
-	
-	
-	
+
+
+
 
 </GridPane>

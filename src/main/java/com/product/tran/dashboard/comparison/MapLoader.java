@@ -9,6 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
+/**
+ * 
+ * Loads column maps
+ * 
+ * @author toantran
+ *
+ */
 public class MapLoader {
 
 	private final static String DELIMITER = ":";
@@ -22,12 +29,18 @@ public class MapLoader {
 		this.columnsToTypeMapper = new HashMap<String, String>();
 	}
 
+	/**
+	 * loads data in map file
+	 * 
+	 * @param fileName
+	 * @throws Exception
+	 */
 	public void load(String fileName) throws Exception {
 		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
 
 			stream.forEach((row) -> {
-				mapKeyToColumns(row);
 				try {
+					mapKeyToColumns(row);
 					mapColumnsToType(row);
 				} catch (Exception e) {
 					throw new RuntimeException(e);
@@ -39,6 +52,11 @@ public class MapLoader {
 		}
 	}
 
+	/**
+	 * maps keys to columns for comparisons
+	 * 
+	 * @param row
+	 */
 	private void mapKeyToColumns(String row) {
 		String[] inputs = row.split(DELIMITER);
 		String key = inputs[MapPosition.KEY_INDEX.getPosition()];
@@ -54,6 +72,12 @@ public class MapLoader {
 		}
 	}
 
+	/**
+	 * maps columns to comparison type
+	 * 
+	 * @param row
+	 * @throws Exception
+	 */
 	private void mapColumnsToType(String row) throws Exception {
 		String[] inputs = row.split(DELIMITER);
 		String columns = inputs[MapPosition.COLUMNS_INDEX.getPosition()];
@@ -67,6 +91,14 @@ public class MapLoader {
 		}
 	}
 
+	/**
+	 * Return Product or Source data column name from key given
+	 * productcolumn~sourcecolumn splits to productcolumn and sourcecolumn
+	 * 
+	 * @param columnKey
+	 * @param productOrSource
+	 * @return
+	 */
 	public static String getColumnName(String columnKey, String productOrSource) {
 		String[] column = columnKey.split(MAPCOLUMNPSPLIT);
 		String columnName = null;

@@ -9,15 +9,7 @@ import javafx.stage.Stage;
 
 public class ComparisonApp extends Application{
 	
-	public static void main(String[] args) {
-//		String productFile = "/Users/toantran/Documents/Java_development/workspace/DataComparisonTool/src/test/resources/InputFiles/product.csv";
-//		String morningStarFile = "/Users/toantran/Documents/Java_development/workspace/DataComparisonTool/src/test/resources/InputFiles/morningstar.csv";
-//		String mapFile = "/Users/toantran/Documents/Java_development/workspace/DataComparisonTool/src/test/resources/map/map.txt";
-//		
-//		MorningStarComparer comparer = new MorningStarComparer(productFile,
-//				morningStarFile, mapFile);
-//		comparer.runCompare();
-		
+	public static void main(String[] args) {	
 		launch(args);
 	}
 
