@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison;
+package com.product.comparison;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ public class ComparisonApp extends Application{
 
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("/morningstar/comparison/config/comparison_app.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/product/comparison/config/comparison_app.fxml"));
 		Scene scene = new Scene(root, 300, 275);
 
         stage.setTitle("FiDa Comparer");

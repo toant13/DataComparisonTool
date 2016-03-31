@@ -3,7 +3,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<GridPane fx:controller="com.product.tran.dashboard.comparison.ComparisonApp"
+<GridPane fx:controller="com.product.comparison.ComparisonApp"
 	xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
 	<TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />

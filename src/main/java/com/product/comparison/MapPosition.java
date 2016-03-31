@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison;
+package com.product.comparison;
 
 /**
  * Enum to map position in mapper file

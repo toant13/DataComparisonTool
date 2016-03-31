@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison;
+package com.product.comparison;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
+
+import com.product.comparison.MapLoader;
 
 public class MapLoaderTest {
 

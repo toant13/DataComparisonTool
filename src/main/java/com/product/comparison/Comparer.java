@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison;
+package com.product.comparison;
 
 /**
  * Abstract class to define comparers.

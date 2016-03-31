@@ -1,8 +1,10 @@
-package com.product.tran.dashboard.comparison;
+package com.product.comparison;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.product.comparison.ProductSourceComparer;
 
 public class ProductSourceComparerTest {
 

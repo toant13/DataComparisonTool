@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.map;
+package com.product.map;
 
 /**
  * 

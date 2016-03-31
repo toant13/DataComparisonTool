@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison;
+package com.product.comparison;
 
 public class StatusPrinter {
 	private static StatusPrinter instance;

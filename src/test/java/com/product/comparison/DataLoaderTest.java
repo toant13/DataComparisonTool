@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.comparison;
+package com.product.comparison;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.net.URL;
 
 import org.junit.Test;
+
+import com.product.comparison.DataHandler;
 
 public class DataLoaderTest {
 

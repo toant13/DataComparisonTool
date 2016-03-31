@@ -1,4 +1,4 @@
-package com.product.tran.dashboard.report;
+package com.product.report;
 
 /**
  * 
