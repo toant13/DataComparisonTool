@@ -21,6 +21,10 @@ public class ProductSourceComparer {
 
 	private MapLoader mapLoader;
 	private DataHandler productData;
+	public DataHandler getProductData() {
+		return productData;
+	}
+
 	private SourceDataHandler sourceData;
 
 	private StatusPrinter statusPrinter;
@@ -65,7 +69,8 @@ public class ProductSourceComparer {
 	private boolean compareProductRows(String key, List<String> attributeList)
 			throws Exception {
 		boolean overallResults = true;
-		for (CSVRecord productRecord : productData.records) {
+		List<CSVRecord> records = productData.getRecords();
+		for (CSVRecord productRecord : records) {
 			String value = productRecord.get(key);
 			CSVRecord sourceRecord = this.sourceData.getRow(key, value);
 			boolean result = compareAttributes(attributeList, productRecord,
