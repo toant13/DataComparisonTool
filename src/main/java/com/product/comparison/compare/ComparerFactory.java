@@ -1,4 +1,5 @@
-package com.product.comparison;
+package com.product.comparison.compare;
+
 
 public class ComparerFactory {
 

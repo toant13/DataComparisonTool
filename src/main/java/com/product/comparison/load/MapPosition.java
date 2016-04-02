@@ -1,4 +1,4 @@
-package com.product.comparison;
+package com.product.comparison.load;
 
 /**
  * Enum to map position in mapper file

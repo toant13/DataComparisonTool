@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.product.comparison.ProductSourceComparer;
+import com.product.comparison.compare.ProductSourceComparer;
 
 public class ProductSourceComparerTest {
 

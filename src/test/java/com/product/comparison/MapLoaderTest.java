@@ -8,7 +8,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.product.comparison.MapLoader;
+import com.product.comparison.load.MapLoader;
 
 public class MapLoaderTest {
 

@@ -8,7 +8,7 @@ import java.net.URL;
 
 import org.junit.Test;
 
-import com.product.comparison.DataHandler;
+import com.product.comparison.load.DataHandler;
 
 public class DataLoaderTest {
 

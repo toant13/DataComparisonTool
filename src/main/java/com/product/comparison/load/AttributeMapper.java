@@ -1,4 +1,4 @@
-package com.product.comparison;
+package com.product.comparison.load;
 
 /**
  * returns columns required for comparison

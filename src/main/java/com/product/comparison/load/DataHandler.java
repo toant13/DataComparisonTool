@@ -1,4 +1,4 @@
-package com.product.comparison;
+package com.product.comparison.load;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

@@ -1,9 +1,14 @@
-package com.product.comparison;
+package com.product.comparison.compare;
 
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.csv.CSVRecord;
+
+import com.product.comparison.StatusPrinter;
+import com.product.comparison.load.DataHandler;
+import com.product.comparison.load.MapLoader;
+import com.product.comparison.load.SourceDataHandler;
 
 /**
  * Class to do comparison of product data against source data using the loaded map
