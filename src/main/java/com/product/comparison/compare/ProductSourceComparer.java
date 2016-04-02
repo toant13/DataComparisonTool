@@ -83,7 +83,7 @@ public class ProductSourceComparer {
 	}
 
 	/**
-	 * Compares product attribute value gainst corresponding source attribute value
+	 * Compares product attribute value against corresponding source attribute value
 	 * 
 	 * @param attributeList
 	 * @param Product

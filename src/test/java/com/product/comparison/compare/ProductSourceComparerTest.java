@@ -1,4 +1,4 @@
-package com.product.comparison;
+package com.product.comparison.compare;
 
 import static org.junit.Assert.*;
 
