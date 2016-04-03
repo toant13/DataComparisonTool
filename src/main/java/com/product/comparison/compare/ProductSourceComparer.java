@@ -89,9 +89,10 @@ public class ProductSourceComparer {
 	 * @param Product
 	 * @param Source
 	 * @return
+	 * @throws Exception 
 	 */
 	private boolean compareAttributes(List<String> attributeList,
-			CSVRecord product, CSVRecord source) {
+			CSVRecord product, CSVRecord source) throws Exception {
 		boolean overallResults = true;
 		for (String attribute : attributeList) {
 			Comparer comparer = getComparer(attribute);
@@ -102,7 +103,7 @@ public class ProductSourceComparer {
 			String sourceColumnLevelKey = MapLoader.getColumnName(
 					attribute, "SOURCE");
 
-			String sourceColumnName = ColumnNameLoader.getSourceColumnName(product,
+			String sourceColumnName = SourceColumnNameLoader.getSourceColumnName(product,
 					sourceColumnLevelKey);
 
 			String sourceValue = source.get(sourceColumnName);

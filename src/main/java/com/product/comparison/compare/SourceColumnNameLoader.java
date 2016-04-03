@@ -5,7 +5,14 @@ import java.util.Map;
 
 import org.apache.commons.csv.CSVRecord;
 
-public class ColumnNameLoader {
+/**
+ * 
+ * Class responsible for getting source column name required for comparison
+ * 
+ * @author toantran
+ *
+ */
+public class SourceColumnNameLoader {
 
 	private static final String SPLIT = "|";
 	private static final String NONMETASPLIT = "\\" + SPLIT;
@@ -17,7 +24,19 @@ public class ColumnNameLoader {
 	private static final int PRODUCTNAMEMAPINDEX = 0;
 	private static final int SOURCENAMEMAPINDEX = 1;
 
-	public static String getSourceColumnName(CSVRecord productRecord, String columnString) {
+	/**
+	 * Gets source column name according to column string given. If there are
+	 * delimiters in string, that means there are levels of logic as to which
+	 * source column to do comparison on
+	 * 
+	 * 
+	 * @param productRecord
+	 * @param columnString
+	 * @return
+	 * @throws Exception 
+	 */
+	public static String getSourceColumnName(CSVRecord productRecord,
+			String columnString) throws Exception {
 		if (columnString.contains(SPLIT)) {
 			String[] mapString = columnString.split(NONMETASPLIT);
 			String productColumnNameForMap = mapString[PRODUCTCOLUMNNAMEINDEX];
@@ -33,13 +52,24 @@ public class ColumnNameLoader {
 
 	}
 
-	private static Map<String, String> getLevelMap(String columnMapString) {
+	/**
+	 * Parses string and puts it in map
+	 * 
+	 * @param columnMapString
+	 * @return
+	 * @throws Exception 
+	 */
+	private static Map<String, String> getLevelMap(String columnMapString) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
 		String[] levelColumns = columnMapString.split(LEVELSEPARATOR);
 
 		for (String productToSourceString : levelColumns) {
 			String[] productToSourceArray = productToSourceString
 					.split(LEVELMAPVALUEDELIMITER);
+			
+			if (productToSourceArray.length != 2){
+				throw new Exception("Column map string is in invalid format");
+			}
 
 			map.put(productToSourceArray[PRODUCTNAMEMAPINDEX],
 					productToSourceArray[SOURCENAMEMAPINDEX]);
@@ -47,6 +77,14 @@ public class ColumnNameLoader {
 		return map;
 	}
 
+	/**
+	 * Get name of source column from map using value from product map column as
+	 * key
+	 * 
+	 * @param productMapValue
+	 * @param productToSourceLevelMap
+	 * @return
+	 */
 	private static String getSourceColumnName(String productMapValue,
 			Map<String, String> productToSourceLevelMap) {
 		return productToSourceLevelMap.get(productMapValue);

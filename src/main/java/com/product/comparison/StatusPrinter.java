@@ -13,11 +13,10 @@ public class StatusPrinter {
 			return instance;
 		}
 	}
-	
-	public void printStatus(String message){
-		//will replace below with writing out to file
+
+	public void printStatus(String message) {
+		// will replace below with writing out to file
 		System.out.println(message);
 	}
-	
 
 }
