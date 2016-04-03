@@ -16,7 +16,7 @@ public class StatusPrinter {
 
 	public void printStatus(String message) {
 		// will replace below with writing out to file
-		System.out.println(message);
+		System.out.println("from printer status: " + message);
 	}
 
 }
