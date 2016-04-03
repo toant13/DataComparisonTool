@@ -12,18 +12,19 @@ public class SourceDataHandler extends DataHandler {
 		super(strFile);
 	}
 
-	public CSVRecord getRow(String attribute, String value) throws Exception {
+	public CSVRecord getRow(String columnName, String value) throws Exception {
 		CSVRecord result = null;
 		for (CSVRecord record : super.records) {
-			if (record.get(attribute).equals(value)) {
+			if (record.get(columnName).equals(value)) {
 				result = record;
+				break; //break from look cause record found
 			}
 		}
 		// Collections.sort(list, (p1, p2)
 		// ->p1.get("product_shortname").compareTo(p2.get("product_shortname")));
 		// for more efficient algorithm nlogn instead of n^2
 		if (result == null) {
-			throw new Exception("No record found for attribute: " + attribute
+			throw new Exception("No record found for attribute: " + columnName
 					+ " and value: " + value);
 		} else {
 			return result;

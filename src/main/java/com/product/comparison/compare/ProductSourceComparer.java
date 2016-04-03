@@ -21,10 +21,6 @@ public class ProductSourceComparer {
 
 	private MapLoader mapLoader;
 	private DataHandler productData;
-	public DataHandler getProductData() {
-		return productData;
-	}
-
 	private SourceDataHandler sourceData;
 
 	private StatusPrinter statusPrinter;
@@ -141,5 +137,9 @@ public class ProductSourceComparer {
 	private Comparer getComparer(String attribute) {
 		String compareType = mapLoader.getColumnsToTypeMapper().get(attribute);
 		return ComparerFactory.getComparer(compareType);
+	}
+	
+	public DataHandler getProductData() {
+		return productData;
 	}
 }
