@@ -21,8 +21,11 @@ public class MapLoader {
 	private final static String DELIMITER = ":";
 	private final static String MAPCOLUMNPSPLIT = "~";
 
+	// map to map join key to columns
 	private Map<String, List<String>> KeyToColumnsMapper;
-	private Map<String, String> columnsToTypeMapper;
+	
+	// map to map columns to comparison type
+	private Map<String, String> columnsToTypeMapper; 
 
 	public MapLoader() {
 		this.KeyToColumnsMapper = new HashMap<String, List<String>>();

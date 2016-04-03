@@ -11,7 +11,8 @@ import com.product.comparison.load.MapLoader;
 import com.product.comparison.load.SourceDataHandler;
 
 /**
- * Class to do comparison of product data against source data using the loaded map
+ * Class to do comparison of product data against source data using the loaded
+ * map
  * 
  * 
  * @author toantran
@@ -38,6 +39,7 @@ public class ProductSourceComparer {
 
 	/**
 	 * Runs data comparison between product data and source data
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -55,7 +57,8 @@ public class ProductSourceComparer {
 	}
 
 	/**
-	 * Comparison of all product rows against corresponding source row matching on key
+	 * Comparison of all product rows against corresponding source row matching
+	 * on key
 	 * 
 	 * @param key
 	 * @param attributeList
@@ -79,7 +82,8 @@ public class ProductSourceComparer {
 	}
 
 	/**
-	 * Compares product attribute value against corresponding source attribute value
+	 * Compares product attribute value against corresponding source attribute
+	 * value
 	 * 
 	 * @param attributeList
 	 * @param Product
@@ -87,17 +91,21 @@ public class ProductSourceComparer {
 	 * @return
 	 */
 	private boolean compareAttributes(List<String> attributeList,
-			CSVRecord Product, CSVRecord Source) {
+			CSVRecord product, CSVRecord source) {
 		boolean overallResults = true;
 		for (String attribute : attributeList) {
 			Comparer comparer = getComparer(attribute);
-			String productColumnName = MapLoader.getColumnName(attribute,
-					"PRODUCT");
-			String productValue = Product.get(productColumnName);
+			String productColumnName = MapLoader.getColumnName(
+					attribute, "PRODUCT");
+			String productValue = product.get(productColumnName);
 
-			String sourceColumnName = MapLoader.getColumnName(attribute,
-					"SOURCE");
-			String sourceValue = Source.get(sourceColumnName);
+			String sourceColumnLevelKey = MapLoader.getColumnName(
+					attribute, "SOURCE");
+
+			String sourceColumnName = ColumnNameLoader.getSourceColumnName(product,
+					sourceColumnLevelKey);
+
+			String sourceValue = source.get(sourceColumnName);
 
 			boolean result = comparer.checkData(productValue, sourceValue);
 			printResults(result, productValue, sourceValue, attribute);
@@ -138,7 +146,7 @@ public class ProductSourceComparer {
 		String compareType = mapLoader.getColumnsToTypeMapper().get(attribute);
 		return ComparerFactory.getComparer(compareType);
 	}
-	
+
 	public DataHandler getProductData() {
 		return productData;
 	}

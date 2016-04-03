@@ -1,2 +1,0 @@
-product_longname:MS_longname,MS_shortname:ALPHA
-product_somenumber:MS_somenumber:NUMERIC

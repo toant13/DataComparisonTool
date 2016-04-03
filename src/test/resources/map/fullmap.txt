@@ -1,0 +1,7 @@
+SPN ID:Vehicle Name~Fund Name:ALPHA
+SPN ID:Vehicle Status~Fund Status:ALPHA
+SPN ID:Primary Prospectus Benchmark~name_v:ALPHA
+SPN ID:Incep. Date~Fund Inception Date:ALPHA
+CUSIP:Morningstar Rating~MORNINGSTAR_OVERALL_RATING_VL:ALPHA
+CUSIP:SI Return~si:NUMERIC
+SPN ID:Closed Date~Vehicle Status|Merged Away=Fund Merge Away Date,Liquidated Date=Fund Liquidation Date:ALPHA

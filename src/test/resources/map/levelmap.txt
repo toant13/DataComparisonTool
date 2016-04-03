@@ -1,0 +1,1 @@
+SPN ID:Closed Date~Vehicle Status|Merged Away=Fund Merge Away Date,Liquidated Date=Fund Liquidation Date:ALPHA
