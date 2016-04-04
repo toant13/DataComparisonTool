@@ -19,7 +19,7 @@ Scenario: Giving positives matches if values are within a given threshold.
 ##To Do
   * ~~`'Comparison using key'` - As a tool user, I want to do comparison against columns from product and the source-data matching on a key, so that I can lower the frequency of false positives.~~
   * ~~`'Comparison based on column values'` - As a tool user, I want to do comparisons using a mapping column, so that I can do comparison depending on the value status.~~
-  * `'Finish status printer'` - As a tool user, I want mis-matches output some how, so that I can visually see mis-matches and investigate why there are they occurred.
+  * ~~`'Finish status printer'` - As a tool user, I want mis-matches output some how, so that I can visually see mis-matches and investigate why there are they occurred.~~
   * `'Finish UI'` - As a tool user, I want to have a UI interface, so that I can select data comparison inputs and save comparison outputs
   * `'Executable jar'` - As a tool user, I want to open the tool by an executable, so that I dont require and IDE to run it.
   * `'Create map'` creator feature - As a tool user, I want a map creator interface, so that I don't have to manually create one
