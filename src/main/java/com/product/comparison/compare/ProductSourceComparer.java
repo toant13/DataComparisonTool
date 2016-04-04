@@ -27,14 +27,14 @@ public class ProductSourceComparer {
 	private StatusPrinter statusPrinter;
 
 	public ProductSourceComparer(String productFile, String sourceFile,
-			String mapFile) throws Exception {
+			String mapFile, StatusPrinter statusPrinter) throws Exception {
 		this.mapLoader = new MapLoader();
 		this.mapLoader.load(mapFile);
 
 		this.productData = new DataHandler(productFile);
 		this.sourceData = new SourceDataHandler(sourceFile);
 
-		this.statusPrinter = StatusPrinter.getStatusPrinter();
+		this.statusPrinter = statusPrinter;
 	}
 
 	/**
