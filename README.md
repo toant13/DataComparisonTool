@@ -21,7 +21,7 @@ Scenario: Giving positives matches if values are within a given threshold.
   * ~~`'Comparison based on column values'` - As a tool user, I want to do comparisons using a mapping column, so that I can do comparison depending on the value status.~~
   * ~~`'Finish status printer'` - As a tool user, I want mis-matches output some how, so that I can visually see mis-matches and investigate why there are they occurred.~~
   * ~~`'Finish UI'` - As a tool user, I want to have a UI interface, so that I can select data comparison inputs and save comparison outputs.~~
-  * `'Executable jar'` - As a tool user, I want to open the tool by an executable, so that I dont require and IDE to run it.
+  * ~~`'Executable jar'` - As a tool user, I want to open the tool by an executable, so that I dont require and IDE to run it.~~
   * `'Create map'` creator feature - As a tool user, I want a map creator interface, so that I don't have to manually create one
   * `'Optimize comparison performance'` - As a tool user, I want the comparisons completion time to be XXX, so that I can get results back quicker 
   * `'Create history report comparer'` - As a tool user, I want to history comparison, so that I can keep track of common mismatch trends and link them with common issues to minimize investigation time
